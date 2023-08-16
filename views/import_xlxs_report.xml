@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--    Journal Customer Report-->
+
+    <record id="view_import_excel_report_form" model="ir.ui.view">
+        <field name="name">view.import.excel.form</field>
+        <field name="model">import.excel.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Stock Updation Report">
+                <group>
+                    <field name="excel_file" string="File for Upload" required="1"/>
+                </group>
+                <footer>
+                    <group>
+                        <button name="get_onHand_stock_valuation_difference" string="Get onHand and Stock Valuation Difference" invisible="1" type="object" class="btn-primary"/>
+                    </group>
+                    <group>
+                        <button name="update_onHand_stock_valuation_qty" string="Update onHand and stock valuation Qty" type="object" class="btn-primary"/>
+                        <button string="Cancel" special="cancel" class="btn-secondary"/>
+                    </group>
+                    <group>
+                        <button name="update_onHand_qty" string="Import exported products excel file" invisible="1" type="object" class="btn-primary"/>
+                    </group>
+<!--                    <group>-->
+<!--                        <button string="Cancel" special="cancel" class="btn-secondary"/>-->
+<!--                    </group>-->
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_import_xlsx_report" model="ir.actions.act_window">
+        <field name="name">Stock Updation Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">import.excel.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            name="Stock Updation Report"
+            parent="sale.menu_sale_report"
+            action="action_import_xlsx_report"
+            id="menu_import_xlsx_report"/>
+
+
+</odoo>

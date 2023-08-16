@@ -1,0 +1,57 @@
+<odoo>
+    <template id="header_layout">
+        <div class="header">
+            <span class="row" style="report_header_style">
+                <span>
+                    <img class="image" src="/sale_excel_report/static/src/img/logo.png" width="150px"/>
+                </span>
+                <div style="font-weight:bold;">
+                    <span style="margin-top:0px;padding:0px;">CSM Catering Services LLC</span>
+                    <br></br>
+                    <span style="margin-top:0px;padding:0px;">Warehouse No. 5</span>
+                    <br></br>
+                    <span style="margin-top:0px;padding:0px;">Al Qouz Industrial Area 2</span>
+                    <br></br>
+                    <span style="margin-top:0px;padding:0px;">Dubai,</span>
+                    <br></br>
+                    <span style="margin-top:0px;padding:0px;">TRN: 100545259200003</span>
+                </div>
+            </span>
+
+        </div>
+
+
+        <div class="article o_report_layout_standard">
+            <t t-out="0"/>
+        </div>
+
+        <!--        <div class="footer o_standard_footer">-->
+        <!--            <div style="text-align:center; font-weight:bold;">-->
+        <!--                <p>BTL-GEN-F005 Revision 1.0</p>-->
+        <!--            </div>-->
+        <!--            <div style="background-color: #08286D; color:white;">-->
+        <!--                <div>-->
+        <!--                    <span style="padding-left: 30px;"><strong>GYPTECH:</strong>Aramco Vendor ID: 10064288-->
+        <!--                    </span>-->
+        <!--                    <span style="padding-right: 30px; float:right;">-->
+        <!--                        <strong>Landline:</strong>-->
+        <!--                        013-896 2222 / 8675322 fax: 013-814 4381-->
+        <!--                    </span>-->
+        <!--                </div>-->
+        <!--                <div>-->
+        <!--                    <span style="padding-left: 30px;"><strong>PO. BOX:</strong>2668, AL-KHOBAR 31952-->
+        <!--                    </span>-->
+        <!--                    <span style="padding-right: 217px; float:right;"><strong>Email:</strong>info@gyptech.com.sa-->
+        <!--                    </span>-->
+        <!--                </div>-->
+        <!--                <div>-->
+        <!--                    <span style="padding-left: 30px;"><strong>Location:</strong>Sehamla Tower, Prince Sultan St. 5th-->
+        <!--                        Floor-->
+        <!--                    </span>-->
+        <!--                    <span style="padding-right: 195px; float:right;"><strong>Website:</strong>www.gyptech.com.Sa-->
+        <!--                    </span>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+    </template>
+</odoo>

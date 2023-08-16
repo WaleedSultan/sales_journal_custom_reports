@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <data>
+        <record id="sales_customer_report_id" model="ir.actions.report">
+            <field name="name">Sales_customer_report</field>
+            <field name="model">sale.pdf.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">sale_excel_report.report_data</field>
+            <field name="report_file">sale_excel_report.report_data</field>
+            <field name="binding_model_id" ref="sale_excel_report.model_sale_pdf_wizard"/>
+        </record>
+
+        <template id="report_data">
+            <t t-call="web.html_container">
+                <div class="page">
+                    <t t-call="sale_excel_report.header_layout">
+                        <div style="margin-top: 25px;">
+                            <div style="margin-bottom:10px; font-weight:bold; text-align:center;"><h3>STATEMENT OF ACCOUNT</h3></div>
+                            <span style="float: left;margin-left: 100px;width: 50%;">
+                                <table class="table table-bordered" style="width:70%;">
+                                    <tr>
+                                        <td>
+                                            To:
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Cut In Half Cafeteria
+                                            <br></br>
+                                            <br></br>
+                                            <br></br>
+                                            <br></br>
+                                            <br></br>
+                                            <br></br>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </span>
+                            <span style="float: right;margin-right: 30px;width: 30%;">
+                                <table class="table table-bordered" style="width:100%;">
+                                    <tr>
+                                        <td>
+                                            Date
+                                        </td>
+                                        <td>
+                                            To
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <t t-esc="from_date"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="to_date"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </span>
+                        </div>
+
+                        <div style="margin-top: 45px;">
+                            <table class="table table-bordered" style="width:100%; margin-left:100px;">
+                                <tr style="font-weight:bold;">
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        Amount Due
+                                    </td>
+                                    <td>Amount Enc</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <t t-esc="amount_due"/>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                                <tr style="font-weight:bold;">
+                                    <td>Date</td>
+                                    <td>Transaction</td>
+                                    <td>Amount</td>
+                                    <td>Balance</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <t t-esc="forward_balance_date"/>
+                                    </td>
+                                    <td>Balance Forward</td>
+                                    <td></td>
+                                    <td>
+                                        <t t-esc="forward_balance"/>
+                                    </td>
+                                </tr>
+                                <t t-foreach="report_data" t-as="line">
+                                    <tr>
+                                        <td>
+                                            <t t-esc="line['date']"/>
+                                        </td>
+                                        <td>
+                                            <!--                                            <t t-esc="line['invoice_number']"/>-->
+                                            <t t-esc="line['sale_order_number']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line['amount']"/>
+                                        </td>
+                                        <td>
+                                            <t t-esc="line['balance']"/>
+                                        </td>
+                                    </tr>
+                                </t>
+
+                                <tr style="font-weight:bold;">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Amount Due</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <t t-esc="amount_due"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </t>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

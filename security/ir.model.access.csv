@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_excel_wizard,sale.excel.wizard,model_sale_excel_wizard,base.group_user,1,1,1,1
+access_sale_pdf_wizard,sale.pdf.wizard,model_sale_pdf_wizard,base.group_user,1,1,1,1
+access_journal_pdf_wizard,journal.pdf.wizard,model_journal_pdf_wizard,base.group_user,1,1,1,1
+access_import_excel_wizard,import.excel.wizard,model_import_excel_wizard,base.group_user,1,1,1,1
+access_sale_crosscheck_wizard,sale.crosscheck.wizard,model_sale_crosscheck_wizard,base.group_user,1,1,1,1

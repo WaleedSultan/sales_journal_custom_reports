@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="journal_report_id" model="ir.actions.report">
+            <field name="name">Journal_report</field>
+            <field name="model">journal.pdf.wizard</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">sale_excel_report.journal_report_data</field>
+            <field name="report_file">sale_excel_report.journal_report_data</field>
+            <field name="binding_model_id" ref="sale_excel_report.model_journal_pdf_wizard"/>
+        </record>
+
+        <template id="journal_report_data">
+            <t t-call="web.html_container">
+                <div class="page">
+                    <t t-call="sale_excel_report.header_layout">
+                        <t t-set="seq" t-value="0"/>
+                        <t t-foreach="report_data" t-as="data">
+                            <div style="margin-top:50px; font-weight: bold; text-align:center;">
+                                <t t-esc="journal_names[seq]"/>
+                            </div>
+                            <div>
+                                <table class="table table-bordered" style="width:80%; margin-left:100px;">
+                                    <thead>
+                                        <tr style="font-weight:bold;">
+                                            <td>Customer Name</td>
+                                            <td>Sale Order Date</td>
+                                            <td>Sale Order No</td>
+                                            <td>Sale Order Amount</td>
+                                            <td>Invoice No</td>
+                                            <td>Invoice Amount</td>
+                                            <td>Payment Status</td>
+                                            <td>Payment No</td>
+                                            <td>Payment Amount</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <t t-foreach="data" t-as="line">
+                                            <tr>
+                                                <td>
+                                                    <t t-esc="line['customer_name']"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="line['sale_order_date']"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="line['sale_order_number']"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="line['sale_order_amount']"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="line['invoice_number']"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="line['invoice_amount']"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="line['payment_status']"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="line['payment_name']"/>
+                                                </td>
+                                                <td>
+                                                    <t t-esc="line['payment_amount']"/>
+                                                </td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <t t-set="seq" t-value="seq+1"/>
+                        </t>
+                    </t>
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--Sale Crosscheck Menu-->
+
+    <record id="view_import_excel_sale_crosscheck_form" model="ir.ui.view">
+        <field name="name">view.import.excel.sale.crosscheck.form</field>
+        <field name="model">sale.crosscheck.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import Excel File for Sale Crosscheck">
+                <group>
+                    <field name="excel_file" string="File for Upload" required="1"/>
+                </group>
+                <footer>
+                    <button name="get_excel_data_for_sale_crosscheck" string="Ok" type="object" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_import_xlsx_for_crosscheck" model="ir.actions.act_window">
+        <field name="name">Import Excel File for Sale Crosscheck</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.crosscheck.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            name="Shopify Sale Crosscheck"
+            parent="sale.menu_sale_report"
+            action="action_import_xlsx_for_crosscheck"
+            id="menu_import_xlsx_for_sale_crosscheck"/>
+
+
+
+</odoo>

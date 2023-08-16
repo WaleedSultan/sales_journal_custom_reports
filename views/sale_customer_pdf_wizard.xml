@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--    Sale Customer Report-->
+
+    <record id="view_customer_pdf_report_form" model="ir.ui.view">
+        <field name="name">view.excel.report.form</field>
+        <field name="model">sale.pdf.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Sale Customer Report">
+                <group>
+                    <group>
+                        <field name="customer_id" string="Customer" required="1"/>
+                    </group>
+                    <group>
+                        <field name="from_date" required="1"/>
+                        <field name="to_date" required="1"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="get_pdf_report" string="Get Pdf Report" type="object" class="btn-primary"/>
+                    <button string="Cancel" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_customer_sale_report" model="ir.actions.act_window">
+        <field name="name">Customer Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.pdf.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            name="Customer Report"
+            parent="sale.menu_sale_report"
+            action="action_customer_sale_report"
+            id="menu_customer_report"/>
+
+
+</odoo>

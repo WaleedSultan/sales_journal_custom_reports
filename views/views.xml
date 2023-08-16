@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="sale_report_xlsx" model="ir.actions.report">
+        <field name="name">Sale Excel Report</field>
+        <field name="model">sale.excel.wizard</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">sale_excel_report.sale_report_xls</field>
+        <field name="report_file">sale_excel_report.sale_report_xls</field>
+        <field name="print_report_name">'Sale Report From %s-TO-%s' % (object.from_date,object.to_date)
+        </field>
+        <field name="attachment">False</field>
+        <field name="binding_model_id" ref="model_sale_excel_wizard"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>
